@@ -25,6 +25,4 @@ dist-ssr
 
 
 README.node_modules
-package-lock.json
-vite.config.js
-.eslintrc.cjs
+
