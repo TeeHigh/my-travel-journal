@@ -5,6 +5,7 @@ This is a project based on the composablility of react.
 Could be said to be the travel journal of an adventurer.
 <br>
 <br>
+<<<<<<< HEAD
 - Link to Figma deign: [Scrimba Travel Journal Design](https://www.figma.com/file/QDWEqQqvvRzxbyelQVD3Cz/Travel-Journal-(Copy)?type=design&node-id=2%3A2&mode=design&t=mqoEe6ytEwKpJceZ-1)
 <br>
 ![Figma file](./public/images/My-Travel-Journal-UI-Design.png)
