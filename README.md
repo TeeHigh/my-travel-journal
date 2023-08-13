@@ -10,5 +10,5 @@ Could be said to be the travel journal of an adventurer.
 
 - Link to Live Site: [https://teehigh.github.io/my-travel-journal](https://teehigh.github.io/my-travel-journal/)
 
-![Live site](./public/images/Travel-journal-fullpage-screenshot.png)
+![[Live site](./public/images/Travel-journal-fullpage-screenshot.png)]
 
