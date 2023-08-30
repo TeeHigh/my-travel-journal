@@ -1,4 +1,4 @@
-const Card = (props) => {
+function Card(props){
     return (
         <div className='card'>
             <section className="image-container">

@@ -1,7 +1,7 @@
 import Card from './Card'
 import data  from '../data.js'
 
-const Main = () => {
+function Main(){
     const newDataArray = data.map(item =>{
                 return(
                         <Card 
