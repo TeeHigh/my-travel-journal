@@ -1,3 +1,5 @@
+import {BiTrash, BiEdit} from 'react-icons/bi'
+
 function Card(props){
     return (
         <div className='card'>
@@ -13,6 +15,9 @@ function Card(props){
                 <h1 className="title">{props.item.title}</h1>
                 <strong className="duration">{props.item.duration}</strong>
                 <article className="article">{props.item.article}</article>
+                {/* <i className="fa-regular fa-pen-to-square">BiEdit BiTrash</i> */}
+                <BiEdit className="edit-icon" />
+                <BiTrash className="delete-icon" />
             </section>
         </div>
     )
