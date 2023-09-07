@@ -16,8 +16,10 @@ function Card(props){
                 <strong className="duration">{props.item.duration}</strong>
                 <article className="article">{props.item.article}</article>
                 {/* <i className="fa-regular fa-pen-to-square">BiEdit BiTrash</i> */}
-                <BiEdit className="edit-icon" />
-                <BiTrash className="delete-icon" />
+                <div className='icons'>
+                    <BiEdit className="edit-icon action-btn" />
+                    <BiTrash className="delete-icon action-btn" onClick={() => confirm('Are you sure you want to delete?')} />
+                </div>
             </section>
         </div>
     )

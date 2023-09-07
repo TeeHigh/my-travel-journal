@@ -1,4 +1,5 @@
 import Card from './Card'
+import Create from './Create'
 import data  from '../data.js'
 
 function Main(){
@@ -13,6 +14,7 @@ function Main(){
         )
     return (
         <main className='main'>
+            <Create/>
             {newDataArray}
         </main>
     )
