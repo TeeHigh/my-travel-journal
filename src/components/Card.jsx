@@ -1,25 +1,25 @@
-import {BiTrash, BiEdit} from 'react-icons/bi'
+import Image from './Image'
+import Country from './Country'
+import Title from './Title'
+import Article from './Article'
+import Actions  from './Actions'
+import Duration from './Duration'
 
-function Card(props){
+function Card({item, onDelete}){
     return (
         <div className='card'>
-            <section className="image-container">
-                <img src={`./images/${props.item.image}`} alt="location image" className='location-image' />
-            </section>
+            <Image image={item.image} />
             <section className="text-section">
                 <div className="location-row">
                     <img src="./images/location-icon.png" alt="location-icon" className="location-icon" />
-                    <p className="country">{props.item.country}</p>
-                    <a href={props.item.link} className="map-view" target="_blank">View on Google Maps</a>
+                    <Country country={item.country} />
+                    <a href={item.link} className="map-view" target="_blank">View on Google Maps</a>
                 </div>
-                <h1 className="title">{props.item.title}</h1>
-                <strong className="duration">{props.item.duration}</strong>
-                <article className="article">{props.item.article}</article>
-                {/* <i className="fa-regular fa-pen-to-square">BiEdit BiTrash</i> */}
-                <div className='icons'>
-                    <BiEdit className="edit-icon action-btn" />
-                    <BiTrash className="delete-icon action-btn" onClick={() => confirm('Are you sure you want to delete?')} />
-                </div>
+                <Title title={item.title} />                
+                <Duration duration={item.duration}/>
+                <Article  article={item.article} />
+                <Actions onDelete={onDelete} id={item.id}/>
+                {/* {console.log(item.id, item.title)} */}
             </section>
         </div>
     )

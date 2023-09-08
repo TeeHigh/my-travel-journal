@@ -1,4 +1,4 @@
-export default [
+const dataArray = [
     {
         id: 1,
         image: "mount-fuji.png",
@@ -27,3 +27,5 @@ export default [
         link: "https://www.google.com/search?q=Geirangerfjord+map&oq=Geirangerfjord+map&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDI5MTJqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#"
     }
 ]
+
+export default dataArray
