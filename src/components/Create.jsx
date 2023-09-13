@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Create = () => {
+const Create = ({openModal}) => {
     return (
         <div className='create-container'>
-            <button className='create-btn'>Create +</button>
+            <button className='create-btn' onClick={() => openModal()} >Create +</button>
         </div>
     )
 }

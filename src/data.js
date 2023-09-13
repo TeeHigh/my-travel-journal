@@ -1,6 +1,6 @@
-const dataArray = [
+const data = [
     {
-        id: 1,
+        id: "",
         image: "mount-fuji.png",
         country: "JAPAN",
         title: "Mount Fuji",
@@ -28,4 +28,4 @@ const dataArray = [
     }
 ]
 
-export default dataArray
+export default data

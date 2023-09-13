@@ -5,7 +5,7 @@ import Article from './Article'
 import Actions  from './Actions'
 import Duration from './Duration'
 
-function Card({item, onDelete}){
+function Card({item, onDelete, addNewCard}){
     return (
         <div className='card'>
             <Image image={item.image} />

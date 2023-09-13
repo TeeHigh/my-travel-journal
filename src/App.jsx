@@ -1,11 +1,13 @@
 import Header from './components/Header'
 import Main from './components/Main'
 
-function App() {
+
+function App({openModal}) {
   return (
     <div className='page'>
+      
       <Header/>
-      <Main/>
+      <Main openModal={openModal}/>
     </div>
   )
 }
