@@ -23,6 +23,10 @@ body{
         align-items: center;
         color: #fff;
         gap: 7px;
+
+        .logo{
+            width: 24px;
+        }
     }
     .main{
         padding: 2.1rem 45px;
@@ -55,6 +59,7 @@ body{
                         letter-spacing: 0.17rem;
                         color: #2B283A;
                         margin-left: 4px;
+                        text-transform: uppercase;
                     }
                     .map-view{
                         font-size: 12px;
@@ -67,6 +72,7 @@ body{
                     margin-bottom: 19px;
                     color: #2B283A;
                     font-size: 25px;
+                    text-transform: capitalize;
                 }
                 .duration{
                     font-size: 12px;
@@ -127,27 +133,23 @@ body{
             scale: .97;
         }
     }
-    // .modal:modal{
-    //     width: 700px;
-    //     height: 400px;
-    //     display: grid;
-    //     place-items: center;
-    //     border: 1px solid black;
-    //     border-radius: 3px;
-    //     /* justify-content: center; */
-    // }
-    // .modal::backdrop{
-    //     background: rgba(0, 0, 0, 0.2);
-    
-    // }
-    dialog{
+    .dialog{
+        z-index: 3;
         background: rgba(0, 0, 0, 0.2);
         height: 100vh;
         width: 100%;
         border: none;
         position: fixed;
-        // display: grid;
+        display: grid;
         place-items: center;
+        top: 0;
+        left: 0;
+    }
+    .hidden{
+        display: none;
+    }
+    .open{
+        display: grid;
     }
     .modal{
         background: #fff;
@@ -165,7 +167,7 @@ body{
 
         .modal-heading{
             text-align: center;
-            font-size: large;
+            font-size: 1.4em;
             margin-bottom: 2em;
             color: #F55A5A;
             text-transform: capitalize;
@@ -204,6 +206,8 @@ body{
                 height: 10em;
                 
             }
+
+            
         }
         .buttons{
             display: flex;

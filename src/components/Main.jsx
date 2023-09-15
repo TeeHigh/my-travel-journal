@@ -1,81 +1,59 @@
-import Card from './Card'
+import React, { useState } from 'react';
 import Create from './Create'
-import data from '../data'
-import {useState} from 'react'
+import Card from './Card';
+import Modal from './Modal'; // Updated import path
+import data from '../data';
 
-function Main({openModal}){
-    
-    const [dataArray, setDataArray] = useState([...data])
+function Main() {
+    const [dataArray, setDataArray] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
-    const [test, setTest] = useState(
-        dataArray.map((item) =>
-            (
-                {...item, id: dataArray.indexOf(item) + 1} 
-            )
-        )
-    )
+    // console.log(isModalOpen)
 
-    const [handleFormChange, setHandleFormChange] = useState(
-        
-        )
+    function addNewCard(newJournal) {
+        setDataArray((prevDataArray) => [
+            ...prevDataArray,
+            {
+                id: Date.now(), // Generate a unique ID (in practice, you might want to use a more robust method)
+                ...newJournal,
+            },
+        ]);
+        setShowModal(false);
+    }
 
-    //Duplicate of data source stored in state
-    // const [dataArray, setDataArray] = useState([...test])
-
-    console.log("This is test", test)
-    console.log("This is dataArray", dataArray)
-
-    //Function to delete a journal
-    function deleteJournal(id){
-        console.log("delete", id)
-
-        setNewDataArray((prevDataArray) =>
-            prevDataArray.filter((item) => item.key !== id.toString())
+    function deleteJournal(id) {
+        setDataArray((prevDataArray) =>
+            prevDataArray.filter((item) => item.id !== id)
         );
     }
 
-    //Function to create a new journal
-    function addNewCard(){
-        console.log("add",)
-        setDataArray((prevDataArray) => 
-            [
-                ...prevDataArray,
-                {
-                    
-                }
-            ]
-        )
-        console.log("new dataArray", dataArray)
-        setTest(
-            dataArray.map((item) =>
-            (
-                {...item, id: dataArray.indexOf(item) + 1} 
-            )
-        )
-        )
-    }
-
-    //Array that holds the card components
-    const [newDataArray, setNewDataArray] = useState(
-        //the item parameter is each object in the array
-        test.map((item) => (
-            <Card 
-                key={item.id}
-                item={item}
-                onDelete={deleteJournal}
-                addNewCard={addNewCard}
-            />
-        ))
-    )
-
-    
-
     return (
-        <main className='main'>
-            <Create addNewCard={addNewCard} openModal={openModal} />
-            {newDataArray}
+        <main className="main">
+            <div className="create-container">
+                <button className='create-btn' onClick={() => setShowModal(true)}>
+                    Create +
+                </button>
+            </div>
+            {showModal && (
+                <Modal
+                    isOpen={showModal}
+                    onClose={() => setShowModal(false)}
+                    onSubmit={addNewCard}
+                />
+            )}
+            {dataArray.length > 0 ? (
+                dataArray.map((item) => (
+                    <Card
+                        key={item.id}
+                        item={item}
+                        onDelete={() => deleteJournal(item.id)} // Pass the ID to deleteJournal
+                    />
+                ))
+            ) : (
+                <p>No journal to display. Create one</p>
+            )}
         </main>
-    )
+    );
 }
 
-export default Main
+export default Main;

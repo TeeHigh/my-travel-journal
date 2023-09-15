@@ -1,9 +1,8 @@
-import React from 'react'
 
-const Create = ({openModal}) => {
+const Create = ({openModal, setShowModal}) => {
     return (
         <div className='create-container'>
-            <button className='create-btn' onClick={() => openModal()} >Create +</button>
+            <button className='create-btn' onClick={() => setShowModal(true)} >Create +</button>
         </div>
     )
 }

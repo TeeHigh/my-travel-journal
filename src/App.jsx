@@ -1,15 +1,17 @@
-import Header from './components/Header'
-import Main from './components/Main'
+import React, { useState } from "react";
+import Header from "./components/Header"
+import Main from "./components/Main";
+import Modal from "./components/Modal";
 
+function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-function App({openModal}) {
   return (
-    <div className='page'>
-      
+    <div className="page">
       <Header/>
-      <Main openModal={openModal}/>
+      <Main isModalOpen={isModalOpen} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
