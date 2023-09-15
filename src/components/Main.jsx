@@ -8,8 +8,6 @@ function Main() {
     const [dataArray, setDataArray] = useState([...data]);
     const [showModal, setShowModal] = useState(false);
 
-    // console.log(isModalOpen)
-
     function addNewCard(newJournal) {
         setDataArray((prevDataArray) => [
             ...prevDataArray,
@@ -33,7 +31,7 @@ function Main() {
             {showModal && (
                 <Modal
                     isOpen={showModal}
-                    onClose={() => setShowModal(false)}
+                    closeModal={() => setShowModal(false)}
                     onSubmit={addNewCard}
                 />
             )}
@@ -42,6 +40,7 @@ function Main() {
                     <Card
                         key={item.id}
                         item={item}
+                        openModal={() => setShowModal(true)}
                         onDelete={() => deleteJournal(item.id)} // Pass the ID to deleteJournal
                     />
                 ))

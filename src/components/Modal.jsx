@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Modal = ({ isOpen, onClose, onSubmit }) => {
+const Modal = ({ isOpen, closeModal, onSubmit }) => {
     const [formData, setFormData] = useState({
         country: "",
         title: "",
@@ -23,9 +23,6 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
 
         // Pass the formData to the parent component via handleForm prop
         onSubmit(formData);
-
-        // Close the modal
-        // closeModal();
     }
 
     return (
@@ -79,7 +76,7 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
                         <button id="submit" type="submit">
                             Submit
                         </button>
-                        <button id="closeModal" type="button" onClick={onClose}>
+                        <button id="closeModal" type="button" onClick={closeModal}>
                             Cancel
                         </button>
                     </div>

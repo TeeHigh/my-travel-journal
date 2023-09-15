@@ -10,7 +10,7 @@ body{
     font-family: 'Inter', sans-serif;
     
     #root{
-        width: 100vw;
+        // width: 100vw;
         height: 100vh;
         display: flex;
         
@@ -134,14 +134,15 @@ body{
         }
     }
     .dialog{
-        z-index: 3;
+        // z-index: 3;
         background: rgba(0, 0, 0, 0.2);
         height: 100vh;
         width: 100%;
         border: none;
         position: fixed;
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         top: 0;
         left: 0;
     }
