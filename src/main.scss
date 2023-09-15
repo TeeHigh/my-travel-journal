@@ -10,7 +10,6 @@ body{
     font-family: 'Inter', sans-serif;
     
     #root{
-        // width: 100vw;
         height: 100vh;
         display: flex;
         
@@ -217,13 +216,14 @@ body{
             gap: 1em;
 
             button{
-                padding: 0.5em 1em;
+                padding: .8em 1.6em;
                 cursor: pointer;
                 background: #F55A5A;
                 border-radius: 5px;
                 outline: none;
                 border: none;
                 color: #fff;
+                font-size: 1em;
             }
             #submit{
                 background: darkgreen;
@@ -268,13 +268,9 @@ body{
                     }
                 }
                 .create-container{
-                    // justify-content: center;
-                    position: relative;
                     margin-bottom: 30px;
                     .create-btn{
-                        // justify-self: center;
                         width: 100%;
-                        // position: fixed;
                     }
                 }
             }
