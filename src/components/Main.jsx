@@ -5,7 +5,7 @@ import Modal from './Modal'; // Updated import path
 import data from '../data';
 
 function Main() {
-    const [dataArray, setDataArray] = useState([]);
+    const [dataArray, setDataArray] = useState([...data]);
     const [showModal, setShowModal] = useState(false);
 
     // console.log(isModalOpen)
@@ -29,11 +29,7 @@ function Main() {
 
     return (
         <main className="main">
-            <div className="create-container">
-                <button className='create-btn' onClick={() => setShowModal(true)}>
-                    Create +
-                </button>
-            </div>
+            <Create setShowModal={() => setShowModal(true)} />
             {showModal && (
                 <Modal
                     isOpen={showModal}
