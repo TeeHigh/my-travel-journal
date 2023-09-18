@@ -6,7 +6,7 @@ const Actions = ({id, onDelete, openModal}) => {
         <div className='icons'>
             <BiEdit className="edit-icon action-btn" 
                 onClick={openModal}
-                keyId={id}
+                // keyId={id}
             />
             <BiTrash className="delete-icon action-btn" onClick={() => 
                 {

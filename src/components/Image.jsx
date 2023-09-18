@@ -2,8 +2,8 @@ import React from 'react'
 
 const Image = (props) => {
     return (
-        <section className="image-container">
-            <img src={`./images/${props.image}`} alt="location image" className='location-image' />
+        <section className="image-container" style={{backgroundImage: `url(${props.image}) `}}>
+            {/* <img src={props.image} alt="location image" className='location-image' /> */}
         </section>
     )
 }

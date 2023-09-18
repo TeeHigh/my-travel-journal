@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 body{
-    // display: flex;
-    // justify-content: center;
     background: rgba(83, 80, 80, 0.1) ;
     font-family: 'Inter', sans-serif;
     
@@ -37,11 +35,16 @@ body{
             gap: 15px;
             // width: 29.375rem;
             margin-bottom: 36px;
+            min-height: 340px;
 
             .image-container{
-                width: 252px;
-                height: 336px;
-                object-fit: contain;
+                background-position: center;
+                background-size: cover;
+
+                img{
+                    width: 100%;
+                    
+                }
             }
 
             .text-section{
@@ -49,6 +52,7 @@ body{
                     display: flex;
                     align-items: center;
                     flex-wrap: wrap;
+                    // flex-basis: 1;
 
                     .location-icon{
                         width: 10px;
@@ -75,6 +79,7 @@ body{
                 }
                 .duration{
                     font-size: 12px;
+                    text-transform: capitalize;
                 }
                 .article{
                     margin-top: 9px;
@@ -82,6 +87,13 @@ body{
                     font-size: 13px;
                     color: #2B283A;
                     width: 80%;
+                    // max-height: ;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    height: 7em;
+                    overflow: auto;
                 }
                 .icons{
                     display: flex;
@@ -175,7 +187,8 @@ body{
         .form{
             .inputs{
                 margin-bottom: 2em;
-                columns: 250px 2;
+                // columns: 200px 2;
+                
             }
 
             label{
@@ -191,7 +204,7 @@ body{
                 background: rgba(248, 174, 174, 0.4);
                 font-size: 16px;
                 border-radius: 3px;
-                padding: 1em;
+                padding: .5em;
                 width: 100%;
 
             }
@@ -199,12 +212,15 @@ body{
                 border: 2px solid #F55A5A;
             }
             input{
-                height: 2em;
+                // height: 2em;
                 margin-bottom: .8em;
             }
             textarea{
-                height: 10em;
+                height: 9em;
                 
+            }
+            #location-image{
+                background: none;
             }
 
             
@@ -239,6 +255,8 @@ body{
 
     @media(max-width: 700px){ /* SMALL SCREENS*/
         .page{
+            width: 100%;
+
             .header{
                 
                 .logo{

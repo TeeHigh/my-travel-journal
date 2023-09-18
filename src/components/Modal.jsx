@@ -6,27 +6,47 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
         title: "",
         duration: "",
         article: "",
+        image: null,
     });
 
-    function handleFormChange(event) {
-        const { name, value } = event.target;
+    const [imagePreview, setImagePreview] = useState(null); // State to hold image preview URL
 
-        // Update formData with the new value
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: value,
-        }));
+    function handleFormChange(event) {
+        const { name, value, type, files } = event.target;
+
+        // Handle image input separately
+        if (type === "file") {
+            const selectedImage = files[0];
+
+            // Generate a preview URL for the selected image
+            if (selectedImage) {
+                const imageUrl = URL.createObjectURL(selectedImage);
+                setImagePreview(imageUrl);
+
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [name]: imageUrl,
+                }));
+            } else {
+                setImagePreview(null);
+            }
+            console.log(formData, selectedImage, imagePreview)
+        } else {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                [name]: value,
+            }));
+        }
     }
 
     function handleSubmit(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-
-        // Pass the formData to the parent component via handleForm prop
+        event.preventDefault();
         onSubmit(formData);
+        closeModal();
     }
 
     return (
-        <div className={`dialog ${isOpen ? '' : 'hidden'}`}>
+        <div className={`dialog ${isOpen ? "" : "hidden"}`}>
             <div className="modal">
                 <h4 className="modal-heading">Update your travel journal</h4>
                 <form className="form" onSubmit={handleSubmit}>
@@ -60,6 +80,24 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
                                 onChange={handleFormChange}
                                 required
                             />
+                        </div>
+                        <div className="image-input">
+                            <label htmlFor="image">Select location image</label>
+                            <input
+                                type="file"
+                                name="image"
+                                id="location-image"
+                                accept="image/*"
+                                onChange={handleFormChange}
+                                required
+                            />
+                            {imagePreview && (
+                                <img
+                                    src={imagePreview}
+                                    alt="Selected Image"
+                                    style={{ maxWidth: "100px" }}
+                                />
+                            )}
                         </div>
                         <div className="article-input">
                             <label htmlFor="article">About</label>

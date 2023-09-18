@@ -5,7 +5,7 @@ import Modal from './Modal'; // Updated import path
 import data from '../data';
 
 function Main() {
-    const [dataArray, setDataArray] = useState([...data]);
+    const [dataArray, setDataArray] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
     function addNewCard(newJournal) {
@@ -17,6 +17,7 @@ function Main() {
             },
         ]);
         setShowModal(false);
+        console.log(newJournal)
     }
 
     function deleteJournal(id) {
