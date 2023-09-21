@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Create from './Create'
 import Card from './Card';
 import Modal from './Modal'; // Updated import path
 import data from '../data';
 
 function Main() {
-    const [dataArray, setDataArray] = useState([]);
+    const [dataArray, setDataArray] = useState(JSON.parse(localStorage.getItem("dataArray")) || []);
     const [showModal, setShowModal] = useState(false);
+
+    useEffect(() =>{
+        localStorage.setItem("dataArray", JSON.stringify(dataArray))
+    })
 
     function addNewCard(newJournal) {
         setDataArray((prevDataArray) => [
-            ...prevDataArray,
             {
                 id: Date.now(), // Generate a unique ID (in practice, you might want to use a more robust method)
                 ...newJournal,
             },
+            ...prevDataArray,
         ]);
         setShowModal(false);
         console.log(newJournal)

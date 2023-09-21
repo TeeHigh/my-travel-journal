@@ -22,6 +22,13 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
             if (selectedImage) {
                 const imageUrl = URL.createObjectURL(selectedImage);
                 setImagePreview(imageUrl);
+                // const reader = new FileReader();
+
+                // reader.onload = (e) =>{
+                //     setImagePreview(e.target.result)
+                // }
+
+                // reader.readAsDataURL(selectedImage)
 
                 setFormData((prevFormData) => ({
                     ...prevFormData,
