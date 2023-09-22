@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Modal = ({ isOpen, closeModal, onSubmit }) => {
-    const [formData, setFormData] = useState({
-        country: "",
-        title: "",
-        duration: "",
-        article: "",
-        image: null,
-    });
+const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData }) => {
+    
 
     const [imagePreview, setImagePreview] = useState(null); // State to hold image preview URL
 
@@ -22,13 +16,6 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
             if (selectedImage) {
                 const imageUrl = URL.createObjectURL(selectedImage);
                 setImagePreview(imageUrl);
-                // const reader = new FileReader();
-
-                // reader.onload = (e) =>{
-                //     setImagePreview(e.target.result)
-                // }
-
-                // reader.readAsDataURL(selectedImage)
 
                 setFormData((prevFormData) => ({
                     ...prevFormData,
@@ -46,6 +33,11 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
         }
     }
 
+    // const [isValid, setIsValid] = useState(false)
+    // function validateURL(url){
+        
+    // }
+
     function handleSubmit(event) {
         event.preventDefault();
         onSubmit(formData);
@@ -56,7 +48,7 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
         <div className={`dialog ${isOpen ? "" : "hidden"}`}>
             <div className="modal">
                 <h4 className="modal-heading">Update your travel journal</h4>
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="form">
                     <div className="inputs">
                         <div className="country-input">
                             <label htmlFor="country">Country</label>
@@ -65,7 +57,20 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
                                 id="country"
                                 onChange={handleFormChange}
                                 value={formData.country}
+                                placeholder="Enter Country"
                                 required
+                            />
+                        </div>
+                        <div className="url-input">
+                            <label htmlFor="Map">Map URL (optional) &nbsp;
+                                <a href="https://www.google.com/maps" target="_blank" className="google-maps">Google Maps</a>
+                            </label>
+                            <input
+                                name="mapURL"
+                                id="mapURL"
+                                onChange={handleFormChange}
+                                value={formData.mapURL}
+                                placeholder="e.g https://www.google.com/maps/place/dubai"
                             />
                         </div>
                         <div className="title-input">
@@ -75,6 +80,7 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
                                 id="title"
                                 onChange={handleFormChange}
                                 value={formData.title}
+                                placeholder="Enter name of place visited"
                                 required
                             />
                         </div>
@@ -85,6 +91,7 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
                                 id="duration"
                                 value={formData.duration}
                                 onChange={handleFormChange}
+                                placeholder="e.g 12th June, 2021 - 14th June, 2021"
                                 required
                             />
                         </div>
@@ -113,12 +120,13 @@ const Modal = ({ isOpen, closeModal, onSubmit }) => {
                                 id="article"
                                 onChange={handleFormChange}
                                 value={formData.article}
+                                placeholder="Write about your experience..."
                                 required
                             />
                         </div>
                     </div>
                     <div className="buttons">
-                        <button id="submit" type="submit">
+                        <button id="submit" type="submit" onClick={handleSubmit}>
                             Submit
                         </button>
                         <button id="closeModal" type="button" onClick={closeModal}>

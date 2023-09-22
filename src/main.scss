@@ -45,7 +45,7 @@ body{
                 display: flex;
                 justify-content: center;
                 overflow: hidden;
-                background-color: rgba(140, 140, 140, 0.3);
+                // background-color: rgba(140, 140, 140, 0.3);
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -206,6 +206,12 @@ body{
                 text-transform: uppercase;
                 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 font-weight: bold;
+
+                .google-maps{
+                    text-transform: none;
+                    color: #918E9B;
+                    font-weight: 300;
+                }
             }
 
             input, textarea{
@@ -227,6 +233,7 @@ body{
             }
             textarea{
                 height: 9em;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 
             }
             #location-image{

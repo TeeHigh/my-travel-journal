@@ -2,10 +2,11 @@ import Image from './Image'
 import Country from './Country'
 import Title from './Title'
 import Article from './Article'
-import Actions  from './Actions'
+import Actions from './Actions'
 import Duration from './Duration'
 
-function Card({item, onDelete, openModal}){
+function Card({ item, onDelete, openModal }) {
+
     return (
         <div className='card'>
             <Image image={item.image} />
@@ -13,12 +14,12 @@ function Card({item, onDelete, openModal}){
                 <div className="location-row">
                     <img src="./images/location-icon.png" alt="location-icon" className="location-icon" />
                     <Country country={item.country} />
-                    <a href={item.link} className="map-view" target="_blank">View on Google Maps</a>
+                    {item.mapURL && <a href={item.mapURL} className="map-view" target="_blank">View on Google Maps</a>}
                 </div>
-                <Title title={item.title} />                
-                <Duration duration={item.duration}/>
-                <Article  article={item.article} />
-                <Actions onDelete={onDelete} id={item.id} openModal={openModal}/>
+                <Title title={item.title} />
+                <Duration duration={item.duration} />
+                <Article article={item.article} />
+                <Actions onDelete={onDelete} id={item.id} openModal={openModal} />
                 {/* {console.log(item.id, item.title)} */}
             </section>
         </div>

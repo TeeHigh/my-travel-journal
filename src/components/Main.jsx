@@ -12,6 +12,15 @@ function Main() {
         localStorage.setItem("dataArray", JSON.stringify(dataArray))
     })
 
+    const [formData, setFormData] = useState({
+        country: "",
+        title: "",
+        duration: "",
+        article: "",
+        image: null,
+        mapURL: "",
+    });
+
     function addNewCard(newJournal) {
         setDataArray((prevDataArray) => [
             {
@@ -38,6 +47,8 @@ function Main() {
                     isOpen={showModal}
                     closeModal={() => setShowModal(false)}
                     onSubmit={addNewCard}
+                    formData={formData}
+                    setFormData={setFormData}
                 />
             )}
             {dataArray.length > 0 ? (
