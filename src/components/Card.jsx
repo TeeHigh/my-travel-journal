@@ -5,7 +5,7 @@ import Article from './Article'
 import Actions from './Actions'
 import Duration from './Duration'
 
-function Card({ item, onDelete, openModal }) {
+function Card({ item, onDelete, openEditModal }) {
 
     return (
         <div className='card'>
@@ -19,7 +19,7 @@ function Card({ item, onDelete, openModal }) {
                 <Title title={item.title} />
                 <Duration duration={item.duration} />
                 <Article article={item.article} />
-                <Actions onDelete={onDelete} id={item.id} openModal={openModal} />
+                <Actions onDelete={onDelete} id={item.id} openEditModal={openEditModal} item={item}/>
                 {/* {console.log(item.id, item.title)} */}
             </section>
         </div>

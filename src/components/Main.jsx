@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Create from './Create'
+import Create from './Create';
 import Card from './Card';
 import Modal from './Modal'; // Updated import path
-import data from '../data';
 
 function Main() {
     const [dataArray, setDataArray] = useState(JSON.parse(localStorage.getItem("dataArray")) || []);
     const [showModal, setShowModal] = useState(false);
+    const [currentAction, setCurrentAction] = useState('create'); // 'create' or 'edit'
+    const [editingCard, setEditingCard] = useState(null); // Card data being edited
 
-    useEffect(() =>{
-        localStorage.setItem("dataArray", JSON.stringify(dataArray))
-    })
+    useEffect(() => {
+        localStorage.setItem("dataArray", JSON.stringify(dataArray));
+    }, [dataArray]);
 
     const [formData, setFormData] = useState({
         country: "",
@@ -21,16 +22,45 @@ function Main() {
         mapURL: "",
     });
 
+    function openCreateModal() {
+        setCurrentAction('create');
+        setFormData({
+            country: "",
+            title: "",
+            duration: "",
+            article: "",
+            image: null,
+            mapURL: "",
+        });
+        setShowModal(true);
+    }
+
+    function openEditModal(card) {
+        setCurrentAction('edit');
+        setFormData(card); // Set formData with card data
+        setShowModal(true);
+    }
+
     function addNewCard(newJournal) {
-        setDataArray((prevDataArray) => [
-            {
-                id: Date.now(), // Generate a unique ID (in practice, you might want to use a more robust method)
-                ...newJournal,
-            },
-            ...prevDataArray,
-        ]);
+        if (currentAction === 'create') {
+            // Create a new card
+            setDataArray((prevDataArray) => [
+                {
+                    id: Date.now(),
+                    ...newJournal,
+                },
+                ...prevDataArray,
+            ]);
+        } else if (currentAction === 'edit' && editingCard) {
+            // Update an existing card
+            const updatedCards = dataArray.map((card) =>
+                card.id === editingCard.id ? { ...card, ...newJournal } : card
+            );
+            setDataArray(updatedCards);
+        }
+
         setShowModal(false);
-        console.log(newJournal)
+        console.log(newJournal);
     }
 
     function deleteJournal(id) {
@@ -41,7 +71,7 @@ function Main() {
 
     return (
         <main className="main">
-            <Create setShowModal={() => setShowModal(true)} />
+            <Create openCreateModal={openCreateModal} />
             {showModal && (
                 <Modal
                     isOpen={showModal}
@@ -49,6 +79,7 @@ function Main() {
                     onSubmit={addNewCard}
                     formData={formData}
                     setFormData={setFormData}
+                    currentAction={currentAction}
                 />
             )}
             {dataArray.length > 0 ? (
@@ -56,8 +87,8 @@ function Main() {
                     <Card
                         key={item.id}
                         item={item}
-                        openModal={() => setShowModal(true)}
-                        onDelete={() => deleteJournal(item.id)} // Pass the ID to deleteJournal
+                        openEditModal={() => openEditModal(item)}
+                        onDelete={() => deleteJournal(item.id)}
                     />
                 ))
             ) : (

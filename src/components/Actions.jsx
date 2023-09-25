@@ -1,11 +1,11 @@
 import {BiTrash, BiEdit} from 'react-icons/bi'
 
-const Actions = ({id, onDelete, openModal}) => {
+const Actions = ({id, onDelete, openEditModal}) => {
     
     return (
         <div className='icons'>
             <BiEdit className="edit-icon action-btn" 
-                onClick={openModal}
+                onClick={openEditModal}
                 // keyId={id}
             />
             <BiTrash className="delete-icon action-btn" onClick={() => 

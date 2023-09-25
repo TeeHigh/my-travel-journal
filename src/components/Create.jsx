@@ -1,9 +1,9 @@
 
-const Create = ({setShowModal}) => {
+const Create = ({openCreateModal}) => {
     return (
         <>
             <div className='create-container'>
-                <button className='create-btn' onClick={setShowModal} >
+                <button className='create-btn' onClick={openCreateModal} >
                     Create +
                 </button>
             </div>

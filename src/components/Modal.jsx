@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData }) => {
+const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAction }) => {
     
 
     const [imagePreview, setImagePreview] = useState(null); // State to hold image preview URL
+
+    useEffect(() => {
+        // Reset formData when the modal opens
+        if (isOpen) {
+            setFormData({
+                country: "",
+                title: "",
+                duration: "",
+                article: "",
+                image: null,
+                mapURL: "",
+            });
+        }
+    }, [isOpen, setFormData]);
 
     function handleFormChange(event) {
         const { name, value, type, files } = event.target;
@@ -127,7 +141,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData }) => {
                     </div>
                     <div className="buttons">
                         <button id="submit" type="submit" onClick={handleSubmit}>
-                            Submit
+                            {currentAction === 'create' ? 'Create' : 'Update'}
                         </button>
                         <button id="closeModal" type="button" onClick={closeModal}>
                             Cancel
