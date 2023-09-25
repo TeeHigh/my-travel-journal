@@ -43,6 +43,7 @@ body .main .card .image-container {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  background-color: rgba(140, 140, 140, 0.3);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

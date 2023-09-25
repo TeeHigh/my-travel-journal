@@ -57,7 +57,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
         <div className={`dialog ${isOpen ? "" : "hidden"}`}>
             <div className="modal">
                 <h4 className="modal-heading">Update your travel journal</h4>
-                <form className="form">
+                <form className="form" onSubmit={handleSubmit}>
                     <div className="inputs">
                         <div className="country-input">
                             <label htmlFor="country">Country</label>
@@ -101,7 +101,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                                 value={formData.duration}
                                 onChange={handleFormChange}
                                 placeholder="e.g 12th June, 2021 - 14th June, 2021"
-                                required
+                                
                             />
                         </div>
                         <div className="image-input">
@@ -112,7 +112,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                                 id="location-image"
                                 accept="image/*"
                                 onChange={handleFormChange}
-                                required
+                                
                             />
                             {imagePreview && (
                                 <img
@@ -130,12 +130,12 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                                 onChange={handleFormChange}
                                 value={formData.article}
                                 placeholder="Write about your experience..."
-                                required
+                                
                             />
                         </div>
                     </div>
                     <div className="buttons">
-                        <button id="submit" type="submit" onClick={handleSubmit}>
+                        <button id="submit" type="submit" >
                             {currentAction === 'create' ? 'Create' : 'Update'}
                         </button>
                         <button id="closeModal" type="button" onClick={closeModal}>
