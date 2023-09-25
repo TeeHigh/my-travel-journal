@@ -38,7 +38,7 @@ body{
             min-height: 340px;
 
             .image-container{
-                border: 2px solid #f38a8a;
+                border: 2px dotted #f38a8a;
                 height: 19em;
                 max-width: 15em;
                 min-width: 15em;
@@ -197,7 +197,22 @@ body{
         .form{
             .inputs{
                 margin-bottom: 2em;
-                // columns: 200px 2;
+
+                .duration-container{
+
+                    .duration-inputs{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-evenly;
+                        gap: 1em;
+                        
+                        input{
+                            font-size: 1em;
+                            // width: 7em;
+                            display: inline;
+                        }
+                    }
+                }
                 
             }
 

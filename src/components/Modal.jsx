@@ -6,12 +6,13 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
     const [imagePreview, setImagePreview] = useState(null); // State to hold image preview URL
 
     useEffect(() => {
-        // Reset formData when the modal opens
+        // Reset formData when the create modal opens
         if (isOpen && currentAction === 'create') {
             setFormData({
                 country: "",
                 title: "",
-                duration: "",
+                startDate: "",
+                endDate: "",
                 article: "",
                 image: null,
                 mapURL: "",
@@ -47,8 +48,18 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
         }
     }
 
+    const currentDate = new Date().toISOString().split('T')[0];
+
     function handleSubmit(event) {
         event.preventDefault();
+
+        const { startDate, endDate } = formData;
+
+        if (startDate > endDate || endDate > currentDate) {
+            alert("Invalid date range. Please select valid dates.");
+            return;
+        }
+
         onSubmit(formData);
         closeModal();
     }
@@ -93,16 +104,34 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                                 required
                             />
                         </div>
-                        <div className="duration-input">
-                            <label htmlFor="duration">Duration</label>
-                            <input
-                                name="duration"
-                                id="duration"
-                                value={formData.duration}
-                                onChange={handleFormChange}
-                                placeholder="e.g 12th June, 2021 - 14th June, 2021"
-                                
-                            />
+                        <div className="duration-container">
+                            <label htmlFor="startDate">
+                                Duration
+                            </label>
+                            <div className="duration-inputs">
+                                <input
+                                    name="startDate"
+                                    id="startDate"
+                                    className="duration"
+                                    type="date"
+                                    max={currentDate}
+                                    value={formData.startDate}
+                                    onChange={handleFormChange}
+                                    placeholder="e.g 12th June, 2021 - 14th June, 2021"
+                                />
+
+                                <input
+                                    name="endDate"
+                                    id="endDate"
+                                    max={currentDate}
+                                    className="duration"
+                                    type="date"
+                                    value={formData.endDate}
+                                    onChange={handleFormChange}
+                                    placeholder="e.g 12th June, 2021 - 14th June, 2021"
+                                    
+                                />
+                            </div>
                         </div>
                         <div className="image-input">
                             <label htmlFor="location-image">Select location image</label>

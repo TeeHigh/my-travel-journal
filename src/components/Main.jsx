@@ -16,7 +16,8 @@ function Main() {
     const [formData, setFormData] = useState({
         country: "",
         title: "",
-        duration: "",
+        startDate: "",
+        endDate: "",
         article: "",
         image: null,
         mapURL: "",
@@ -27,7 +28,8 @@ function Main() {
         setFormData({
             country: "",
             title: "",
-            duration: "",
+            startDate: "",
+            endDate: "",
             article: "",
             image: null,
             mapURL: "",

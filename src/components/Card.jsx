@@ -17,7 +17,7 @@ function Card({ item, onDelete, openEditModal }) {
                     {item.mapURL && <a href={item.mapURL} className="map-view" target="_blank">View on Google Maps</a>}
                 </div>
                 <Title title={item.title} />
-                <Duration duration={item.duration} />
+                <Duration startDate={item.startDate} endDate={item.endDate} />
                 <Article article={item.article} />
                 <Actions onDelete={onDelete} id={item.id} openEditModal={openEditModal} item={item}/>
                 {/* {console.log(item.id, item.title)} */}
