@@ -7,7 +7,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
 
     useEffect(() => {
         // Reset formData when the modal opens
-        if (isOpen) {
+        if (isOpen && currentAction === 'create') {
             setFormData({
                 country: "",
                 title: "",
@@ -47,11 +47,6 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
         }
     }
 
-    // const [isValid, setIsValid] = useState(false)
-    // function validateURL(url){
-        
-    // }
-
     function handleSubmit(event) {
         event.preventDefault();
         onSubmit(formData);
@@ -76,7 +71,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                             />
                         </div>
                         <div className="url-input">
-                            <label htmlFor="Map">Map URL (optional) &nbsp;
+                            <label htmlFor="mapURL">Map URL (optional) &nbsp;
                                 <a href="https://www.google.com/maps" target="_blank" className="google-maps">Google Maps</a>
                             </label>
                             <input
@@ -110,7 +105,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                             />
                         </div>
                         <div className="image-input">
-                            <label htmlFor="image">Select location image</label>
+                            <label htmlFor="location-image">Select location image</label>
                             <input
                                 type="file"
                                 name="image"

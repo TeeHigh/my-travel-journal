@@ -38,31 +38,34 @@ function Main() {
     function openEditModal(card) {
         setCurrentAction('edit');
         setFormData(card); // Set formData with card data
+        setEditingCard(card)
         setShowModal(true);
     }
 
-    function addNewCard(newJournal) {
-        if (currentAction === 'create') {
-            // Create a new card
-            setDataArray((prevDataArray) => [
+
+    /* FUNCTION TO MOVE UPDATED CARD TO TOP OF ARRAY */
+    const addNewCard = (newJournal) => {
+        const updatedDataArray = currentAction === 'create'
+            ? [
                 {
                     id: Date.now(),
                     ...newJournal,
                 },
-                ...prevDataArray,
-            ]);
-        } else if (currentAction === 'edit' && editingCard) {
-            // Update an existing card
-            const updatedCards = dataArray.map((card) =>
-                card.id === editingCard.id ? { ...card, ...newJournal } : card
-            );
-            setDataArray(updatedCards);
-        }
-
+                ...dataArray
+            ]
+            : [
+                {
+                    id: editingCard.id,
+                    ...newJournal,
+                },
+                ...dataArray.filter((item) => item.id !== editingCard.id)
+            ];
+    
+        setDataArray(updatedDataArray);
         setShowModal(false);
-        console.log(newJournal);
-    }
+    };
 
+    /*FUNCTION TO DELETE A CARD*/
     function deleteJournal(id) {
         setDataArray((prevDataArray) =>
             prevDataArray.filter((item) => item.id !== id)
