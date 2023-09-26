@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAction }) => {
+const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAction, singleDay, setSingleDay }) => {
     
 
     const [imagePreview, setImagePreview] = useState(null); // State to hold image preview URL
@@ -16,13 +16,15 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                 article: "",
                 image: null,
                 mapURL: "",
+                singleDay: false
             });
         }
     }, [isOpen, setFormData]);
 
     function handleFormChange(event) {
-        const { name, value, type, files } = event.target;
+        const { name, value, type, files, checked  } = event.target;
 
+        
         // Handle image input separately
         if (type === "file") {
             const selectedImage = files[0];
@@ -40,13 +42,23 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                 setImagePreview(null);
             }
             console.log(formData, selectedImage, imagePreview)
-        } else {
+        } 
+        else if(type === "checkbox"){
+            setSingleDay(!singleDay)
+
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                [name]: checked,
+            }));
+        }
+        else {
             setFormData((prevFormData) => ({
                 ...prevFormData,
                 [name]: value,
             }));
         }
     }
+
 
     const currentDate = new Date().toISOString().split('T')[0];
 
@@ -120,7 +132,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                                     placeholder="e.g 12th June, 2021 - 14th June, 2021"
                                 />
 
-                                <input
+                                {!singleDay && <input
                                     name="endDate"
                                     id="endDate"
                                     max={currentDate}
@@ -130,7 +142,18 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                                     onChange={handleFormChange}
                                     placeholder="e.g 12th June, 2021 - 14th June, 2021"
                                     
-                                />
+                                />}
+                            </div>
+                            <div className="single-day">(
+                                <p>Single Day Trip</p>
+                                &nbsp;
+                                <input 
+                                    name="singleDay"
+                                    type="checkbox" 
+                                    className="checkbox"
+                                    checked={singleDay}
+                                    onChange={handleFormChange}
+                                />)
                             </div>
                         </div>
                         <div className="image-input">

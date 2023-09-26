@@ -171,6 +171,9 @@ body .modal .modal-heading {
 body .modal .form .inputs {
   margin-bottom: 2em;
 }
+body .modal .form .inputs .duration-container {
+  margin-bottom: 0.8em;
+}
 body .modal .form .inputs .duration-container .duration-inputs {
   width: 100%;
   display: flex;
@@ -180,6 +183,17 @@ body .modal .form .inputs .duration-container .duration-inputs {
 body .modal .form .inputs .duration-container .duration-inputs input {
   font-size: 1em;
   display: inline;
+}
+body .modal .form .inputs .duration-container .single-day {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.1em;
+}
+body .modal .form .inputs .duration-container .single-day .checkbox {
+  cursor: pointer;
+  margin: 0;
+  width: auto;
 }
 body .modal .form label {
   text-transform: uppercase;

@@ -8,6 +8,7 @@ function Main() {
     const [showModal, setShowModal] = useState(false);
     const [currentAction, setCurrentAction] = useState('create'); // 'create' or 'edit'
     const [editingCard, setEditingCard] = useState(null); // Card data being edited
+    const [singleDay, setSingleDay] = useState(false)
 
     useEffect(() => {
         localStorage.setItem("dataArray", JSON.stringify(dataArray));
@@ -21,6 +22,7 @@ function Main() {
         article: "",
         image: null,
         mapURL: "",
+        singleDay: false
     });
 
     function openCreateModal() {
@@ -85,6 +87,8 @@ function Main() {
                     formData={formData}
                     setFormData={setFormData}
                     currentAction={currentAction}
+                    singleDay={singleDay}
+                    setSingleDay={setSingleDay}
                 />
             )}
             {dataArray.length > 0 ? (
@@ -94,6 +98,7 @@ function Main() {
                         item={item}
                         openEditModal={() => openEditModal(item)}
                         onDelete={() => deleteJournal(item.id)}
+                        singleDay={singleDay}
                     />
                 ))
             ) : (

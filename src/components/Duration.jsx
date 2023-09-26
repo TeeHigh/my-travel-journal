@@ -11,7 +11,7 @@ const Duration = (props) => {
 
     return (
         <strong className="duration">
-            {start} - {end}
+            {start} {props.singleDay ? "" : `- ${end}`}
         </strong>
     )
 }

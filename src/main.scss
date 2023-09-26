@@ -62,7 +62,6 @@ body{
                     display: flex;
                     align-items: center;
                     flex-wrap: wrap;
-                    // flex-basis: 1;
 
                     .location-icon{
                         width: 10px;
@@ -197,8 +196,9 @@ body{
         .form{
             .inputs{
                 margin-bottom: 2em;
-
+                
                 .duration-container{
+                    margin-bottom: .8em;
 
                     .duration-inputs{
                         width: 100%;
@@ -210,6 +210,18 @@ body{
                             font-size: 1em;
                             // width: 7em;
                             display: inline;
+                        }
+                    }
+                    .single-day{
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        gap: .1em;
+
+                        .checkbox{
+                            cursor: pointer;
+                            margin: 0;
+                            width: auto;
                         }
                     }
                 }
