@@ -43,6 +43,7 @@ function Main() {
         setCurrentAction('edit');
         setFormData(card); // Set formData with card data
         setEditingCard(card)
+        setSingleDay(card.singleDay)
         setShowModal(true);
     }
 
