@@ -25,15 +25,15 @@ function Main() {
 
     function openCreateModal() {
         setCurrentAction('create');
-        setFormData({
-            country: "",
-            title: "",
-            startDate: "",
-            endDate: "",
-            article: "",
-            image: null,
-            mapURL: "",
-        });
+        // setFormData({
+        //     country: "",
+        //     title: "",
+        //     startDate: "",
+        //     endDate: "",
+        //     article: "",
+        //     image: null,
+        //     mapURL: "",
+        // });
         setShowModal(true);
     }
 

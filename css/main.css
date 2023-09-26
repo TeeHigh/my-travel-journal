@@ -38,7 +38,6 @@ body .main .card {
 body .main .card .image-container {
   border: 2px dotted #f38a8a;
   height: 19em;
-  max-width: 15em;
   min-width: 15em;
   display: flex;
   justify-content: center;
@@ -93,7 +92,7 @@ body .main .card .text-section .article {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  height: 7em;
+  height: 7.5em;
   overflow: auto;
 }
 body .main .card .text-section .icons {
