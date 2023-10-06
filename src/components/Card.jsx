@@ -5,7 +5,7 @@ import Article from './Article'
 import Actions from './Actions'
 import Duration from './Duration'
 
-function Card({ item, onDelete, openEditModal, singleDay }) {
+function Card({ item, onDelete, openEditModal }) {
 
     return (
         <div className='card'>

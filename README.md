@@ -2,7 +2,7 @@
 
 This is a project based on the composablility of react.
 <br>
-A travel journal that allows users to upload and keep track of different journeys embarked on. 
+A travel journal that allows users to upload and keep track of travel expeditions. 
 <br>
 <br>
 

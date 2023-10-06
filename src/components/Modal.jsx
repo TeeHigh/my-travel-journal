@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAction, singleDay, setSingleDay }) => {
-    
 
     const [imagePreview, setImagePreview] = useState(null); // State to hold image preview URL
+    const [formChanged, setFormChanged] = useState(false)
 
     useEffect(() => {
         // Reset formData when the create modal opens
@@ -24,7 +24,6 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
     function handleFormChange(event) {
         const { name, value, type, files, checked  } = event.target;
 
-        
         // Handle image input separately
         if (type === "file") {
             const selectedImage = files[0];
@@ -57,6 +56,8 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                 [name]: value,
             }));
         }
+
+        setFormChanged(true)
     }
 
 
@@ -190,7 +191,7 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
                         <button id="submit" type="submit" >
                             {currentAction === 'create' ? 'Create' : 'Update'}
                         </button>
-                        <button id="closeModal" type="button" onClick={closeModal}>
+                        <button id="closeModal" type="button" onClick={closeModal} >
                             Cancel
                         </button>
                     </div>
