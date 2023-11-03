@@ -131,6 +131,9 @@ body .create-container .create-btn {
 body .create-container .create-btn:active {
   scale: 0.97;
 }
+body .create-container .create-btn:hover {
+  background: #F55A5A;
+}
 body .dialog {
   background: rgba(0, 0, 0, 0.2);
   height: 100vh;
