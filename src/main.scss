@@ -38,8 +38,8 @@ body{
             min-height: 340px;
 
             .image-container{
-                border: 2px solid #f38a8a;
-                height: 19em;
+                // outline: 2px solid #f38a8a;
+                height: 20em;
                 // max-width: 15em;
                 min-width: 15em;
                 display: flex;
@@ -47,7 +47,7 @@ body{
                 overflow: hidden;
                 background-color: rgba(195, 192, 192, 0.3);
                 background-position: center;
-                // background-size: contain;
+                background-size: contain;
                 background-repeat: no-repeat;
                 border-radius: 10px;
 
