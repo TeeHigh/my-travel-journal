@@ -34,7 +34,8 @@ body{
             align-items: center;
             gap: 15px;
             // width: 29.375rem;
-            margin-bottom: 36px;
+            // margin-bottom: 36px;
+            margin: 18px 0;
             min-height: 340px;
 
             .image-container{
@@ -95,24 +96,26 @@ body{
                     line-height: 1.2rem;
                     font-size: 13px;
                     color: #2B283A;
+                    background: #f5f4f5;
+                    padding: .4em;
                     width: 80%;
                     // max-height: ;
                     display: -webkit-box;
                     -webkit-line-clamp: 3;
                     -webkit-box-orient: vertical;
                     // text-overflow: ellipsis;
-                    height: 7.5em;
+                    height: 10em;
                     overflow: auto;
                 }
                 .icons{
                     display: flex;
-                    margin-top: 35px;
+                    margin-top: .4em;
                     font-size: 2.2em;
                     gap: .3em;
 
                     .action-btn{
                         padding: 8px;
-                        background: #ccc;
+                        background: rgba(195, 192, 192, 0.3);
                         border-radius: 3px;
                         cursor: pointer;
                     }
@@ -314,7 +317,7 @@ body{
                 padding: 1.7rem 36px;
                 .card{
                     flex-direction: column;
-                    margin-bottom: 45px;
+                    margin: 22px 0;
 
                     .image-container{
                         // width: 00%;
@@ -326,9 +329,16 @@ body{
                         }
                         .article{
                             width: 100%;
+                            font-size: 1em;
+                            height: 8.8em;
+                        }
+                        .duration{
+                            font-size: .9em;
                         }
                         .icons{
-                            margin-top: 10px;
+                            margin: .5em 0 .1em;
+                            font-size: 2.8em;
+                            justify-content: center;
                         }
                     }
                 }

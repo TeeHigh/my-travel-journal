@@ -8,21 +8,25 @@ import Duration from './Duration'
 function Card({ item, onDelete, openEditModal }) {
 
     return (
-        <div className='card'>
-            <Image image={item.image} />
-            <section className="text-section">
-                <div className="location-row">
-                    <img src="./images/location-icon.png" alt="location-icon" className="location-icon" />
-                    <Country country={item.country} />
-                    {item.mapURL && <a href={item.mapURL} className="map-view" target="_blank">View on Google Maps</a>}
-                </div>
-                <Title title={item.title} />
-                <Duration startDate={item.startDate} endDate={item.endDate} singleDay={item.singleDay} />
-                <Article article={item.article} />
-                <Actions onDelete={onDelete} id={item.id} openEditModal={openEditModal} item={item}/>
-                {/* {console.log(item.id, item.title)} */}
-            </section>
-        </div>
+        <>
+            <hr />
+            <div className='card'>
+                <Image image={item.image} />
+                <section className="text-section">
+                    <div className="location-row">
+                        <img src="./images/location-icon.png" alt="location-icon" className="location-icon" />
+                        <Country country={item.country} />
+                        {item.mapURL && <a href={item.mapURL} className="map-view" target="_blank">View on Google Maps</a>}
+                    </div>
+                    <Title title={item.title} />
+                    <Duration startDate={item.startDate} endDate={item.endDate} singleDay={item.singleDay} />
+                    <Article article={item.article} />
+                    <Actions onDelete={onDelete} id={item.id} openEditModal={openEditModal} item={item}/>
+                    {/* {console.log(item.id, item.title)} */}
+                </section>
+            </div>
+            
+        </>
     )
 }
 

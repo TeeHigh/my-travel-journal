@@ -32,7 +32,7 @@ body .main .card {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 36px;
+  margin: 18px 0;
   min-height: 340px;
 }
 body .main .card .image-container {
@@ -83,22 +83,24 @@ body .main .card .text-section .article {
   line-height: 1.2rem;
   font-size: 13px;
   color: #2B283A;
+  background: #f5f4f5;
+  padding: 0.4em;
   width: 80%;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  height: 7.5em;
+  height: 10em;
   overflow: auto;
 }
 body .main .card .text-section .icons {
   display: flex;
-  margin-top: 35px;
+  margin-top: 0.4em;
   font-size: 2.2em;
   gap: 0.3em;
 }
 body .main .card .text-section .icons .action-btn {
   padding: 8px;
-  background: #ccc;
+  background: rgba(195, 192, 192, 0.3);
   border-radius: 3px;
   cursor: pointer;
 }
@@ -265,16 +267,23 @@ body .modal .buttons button:active {
   }
   body .page .main .card {
     flex-direction: column;
-    margin-bottom: 45px;
+    margin: 22px 0;
   }
   body .page .main .card .text-section .title {
     margin-block: 15px;
   }
   body .page .main .card .text-section .article {
     width: 100%;
+    font-size: 1em;
+    height: 8.8em;
+  }
+  body .page .main .card .text-section .duration {
+    font-size: 0.9em;
   }
   body .page .main .card .text-section .icons {
-    margin-top: 10px;
+    margin: 0.5em 0 0.1em;
+    font-size: 2.8em;
+    justify-content: center;
   }
   body .page .main .create-container {
     margin-bottom: 30px;
