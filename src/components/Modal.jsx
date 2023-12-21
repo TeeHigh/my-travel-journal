@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAction, singleDay, setSingleDay }) => {
 
     const [imagePreview, setImagePreview] = useState(null); // State to hold image preview URL
-    const [formChanged, setFormChanged] = useState(false)
+    const [formChanged, setFormChanged] = useState(false) //State to check if form has undergone change
 
     useEffect(() => {
         // Reset formData when the create modal opens
