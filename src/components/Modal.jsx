@@ -68,9 +68,11 @@ const Modal = ({ isOpen, closeModal, onSubmit, formData, setFormData, currentAct
 
         const { startDate, endDate } = formData;
 
-        if (startDate > endDate || endDate > currentDate) {
-            alert("Invalid date range. Please select valid dates.");
-            return;
+        if(!singleDay){
+            if (startDate > endDate || endDate > currentDate) {
+                alert("Invalid date range. Please select valid dates.");
+                return;
+            }
         }
 
         onSubmit(formData);
